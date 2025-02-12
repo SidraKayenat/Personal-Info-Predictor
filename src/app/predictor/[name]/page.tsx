@@ -14,10 +14,10 @@ const getPredictedCountry = async (name: string) => {
 };
 
 interface Params {
-  params: { name: string };
+  name: string; // Change this to match the expected structure
 }
 
-export default async function Page({ params }: Params) {
+export default async function Page({ params }: { params: Params }) {
   const ageData = getPredictedAge(params.name);
   const genderData = getPredictedGender(params.name);
   const countryData = getPredictedCountry(params.name);
