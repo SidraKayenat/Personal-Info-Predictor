@@ -1,4 +1,5 @@
-import { NextPage } from "next";
+// Import necessary types
+import { FC } from "react";
 
 const getPredictedAge = async (name: string) => {
   const res = await fetch(`https://api.agify.io/?name=${name}`);
@@ -15,8 +16,8 @@ const getPredictedCountry = async (name: string) => {
   return res.json();
 };
 
-// Use NextPage type for the component
-const Page: NextPage<{ params: { name: string } }> = async ({ params }) => {
+// Define the Page component
+const Page: FC<{ params: { name: string } }> = async ({ params }) => {
   const ageData = getPredictedAge(params.name);
   const genderData = getPredictedGender(params.name);
   const countryData = getPredictedCountry(params.name);
